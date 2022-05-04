@@ -19,7 +19,7 @@ public class JvmComprehension {
         Object o = new Object();        // 2 в Heap куче создается объект Object, после этого будет выполнена левая часть
                                         // создастся переменная со ссылкой на этот объект (будет присвоена в "o")
                                         // ссылка на объект хранится в стеке Stack Memory
-        Integer ii = 2;                 // 3 будет сохранена в стеке
+        Integer ii = 2;                 // 3 создастся объект Integer со значением "2", будет сохранен в куче Heap
         printAll(o, i, ii);             // 4 создается новый кадр(фрейм) в стеке Stack Memory и в теле данного
                                         //метода создаются поля, куда передается ссылка на объект и значения переменных i и ii
         System.out.println("finished"); // 7 в Heap выделяется место под строку String, где будет храниться значение - finished
@@ -27,7 +27,7 @@ public class JvmComprehension {
     }
 
     private static void printAll(Object o, int i, Integer ii) {
-        Integer uselessVar = 700;                   // 5 переменная будет сохранена в стеке со значением в теле метода printAll()
+        Integer uselessVar = 700;                   // 5   // Integer это объект, "700" будет сохранен в куче Heap
         System.out.println(o.toString() + i + ii);  // 6 создается фрейм(кадр) в стеке, куда в качестве параметра передастся
                                                     // ссылка на объект и значения переменных i и ii
     }
